@@ -8,4 +8,10 @@ html, body {
 .main-wrapper-layout {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+header {
+    height: 50px;
+    width: 80%;
+    background: red;
 }
