@@ -1,0 +1,11 @@
+html, body {
+    box-sizing: border-box;
+    margin: none;
+    padding: none;
+    height: 100vh;
+    width: 100vw;
+}
+.main-wrapper-layout {
+    display: flex;
+    flex-direction: column;
+}
