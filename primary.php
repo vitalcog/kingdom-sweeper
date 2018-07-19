@@ -6,13 +6,13 @@
     <title>Fun App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
-    <divclass="flex-layout-wrapper">
-        <header>HEADER!</header>
+    <div class="flex-layout-wrapper">
+        <header></header>
         <div class="main-body-div"></div>
-        <footer>FOOTER!</footer>
+        <footer></footer>
     </div>
 </body>
 </html>
