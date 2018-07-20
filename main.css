@@ -19,8 +19,11 @@ header {
     width: 80%;
     align-self: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: flex-end;
+}
+.world-unit {
+    border: .5px solid black;
 }
 .world-unit:hover {
     background: aqua !important;

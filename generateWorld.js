@@ -88,15 +88,16 @@ console.log(terrain)
 world_units.map((units)=>{
     let unit = document.createElement('div')
     unit.style.boxSizing = 'border-box'
-    unit.style.width = '15px'
-    unit.style.height = '15px'
+    unit.style.width = '16px'
+    unit.style.height = '16px'
 
     unit.style.backgroundColor = generateLandColor(units.land_type, units.home)
-    unit.style.border = '1px solid black'
     unit.classList.add('world-unit')
 
     unit.addEventListener("click", (e)=>{
         land_stat_display.innerHTML = `x = ${units.x},<br> y = ${units.y},<br> ${units.land_type}`
+        units.land_type = 'desert'
+        unit.style.backgroundColor = generateLandColor(units.land_type, units.home)
     })
 
     world_map.appendChild(unit)
