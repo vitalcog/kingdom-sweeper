@@ -22,6 +22,11 @@ header {
     flex-direction: row-reverse;
     align-items: flex-end;
 }
+.display {
+    height: 300px;
+    width: 200px;
+    border: solid 2px salmon;
+}
 .world-unit {
     border: .5px solid black;
 }
