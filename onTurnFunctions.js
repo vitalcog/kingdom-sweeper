@@ -4,6 +4,8 @@ const home_value = {
     land: null
 }
 
+const visible_land = []
+
 function findHome(arg) {
     for (let i = 0; i < arg.length; i++) {
         if(arg[i].home) {

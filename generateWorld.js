@@ -22,7 +22,7 @@ function generateWorld(arg) {
             y: y,
             land_type: terrainSelection(),
             home: determineStartLocation(i),
-            discovered: false,
+            discovered: determineStartLocation(i),
             claimed: false,
         }
         world_units.unshift(land)
@@ -50,7 +50,7 @@ world_units.map((units)=>{
     unit.classList.add('world-unit')
 
     unit.addEventListener("click", (e)=>{
-        display.innerHTML = `x = ${units.x},<br> y = ${units.y},<br> ${units.land_type},<br> ${units.claimed ? 'claimed' : 'unclaimed'}`
+        display.innerHTML = `x = ${units.x},<br> y = ${units.y},<br> ${units.land_type},<br> ${units.claimed ? 'claimed' : 'unclaimed'},<br> ${units.discovered ? 'discovered' : 'undiscovered'}`
         units.discovered = true
         unit.style.backgroundColor = generateLandColor(units)
     })
