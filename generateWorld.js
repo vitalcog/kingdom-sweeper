@@ -1,9 +1,11 @@
 const main_section = document.querySelector('.main-body-div')
 const world_map = document.createElement('div')
-const display = document.createElement('div')
+const display = document.getElementById('display')
+const display_info = document.createElement('p')
+const button = document.querySelector('button')
 
 const world_units = []
-const size_of_world = 30
+const size_of_world = 25
 const terrain = {
     forest: 0,
     plains: 0,
@@ -23,7 +25,7 @@ function generateWorld(arg) {
             land_type: terrainSelection(),
             home: determineStartLocation(i),
             discovered: determineStartLocation(i),
-            claimed: false,
+            claimed: determineStartLocation(i),
         }
         world_units.unshift(land)
         x++
@@ -38,33 +40,27 @@ function generateWorld(arg) {
 generateWorld(size_of_world)
 
 console.log(typeof world_units + ' world_units length = ' + world_units.length)
-console.log(terrain)
 
-world_units.map((units)=>{
-    let unit = document.createElement('div')
-    unit.style.boxSizing = 'border-box'
-    unit.style.width = '16px'
-    unit.style.height = '16px'
+displayWorld(world_units)
 
-    unit.style.backgroundColor = generateLandColor(units)
-    unit.classList.add('world-unit')
-
-    unit.addEventListener("click", (e)=>{
-        display.innerHTML = `x = ${units.x},<br> y = ${units.y},<br> ${units.land_type},<br> ${units.claimed ? 'claimed' : 'unclaimed'},<br> ${units.discovered ? 'discovered' : 'undiscovered'}`
-        units.discovered = true
-        unit.style.backgroundColor = generateLandColor(units)
-    })
-
-    world_map.appendChild(unit)
+let counter = 0
+button.addEventListener('click', (e)=>{
+    findHome(world_units)
+    world_units[counter].discovered = true
+    counter ++
+    determinExploredLands(world_units)
+    world_map.innerHTML = null;
+    displayWorld(world_units)
 })
 
 
 world_map.style.display = 'flex'
 world_map.style.flexDirection = 'row-reverse'
 world_map.style.flexWrap = 'wrap'
-world_map.style.maxWidth = `${size_of_world * parseInt(world_map.childNodes[0].style.width)}px`
+world_map.style.maxWidth = `${size_of_world * 18}px`
 
 main_section.appendChild(world_map)
 
 display.classList.add('display')
+display.appendChild(display_info)
 main_section.appendChild(display)

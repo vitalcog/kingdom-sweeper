@@ -49,6 +49,32 @@ function determineStartLocation(arg) {
         return true
     }
     else {
-        return null
+        return false
+    }
+}
+
+function displayWorld(arg) {
+    determinExploredLands(arg)
+    for (let i = 0; i < arg.length; i++) {
+        let unit = arg[i]
+        let land_node = document.createElement('div')
+    
+        land_node.style.boxSizing = 'border-box'
+        land_node.style.height = '18px'
+        land_node.style.width = '18px'
+        land_node.style.backgroundColor = generateLandColor(unit)
+        land_node.classList.add('world-unit')
+    
+        land_node.addEventListener("click", (e)=>{
+            display_info.innerHTML = 
+                `<br> x = ${unit.x},
+                <br> y = ${unit.y},
+                <br> ${unit.land_type},
+                <br> ${unit.claimed ? 'claimed' : 'unclaimed'},
+                <br> ${unit.discovered ? 'discovered' : 'undiscovered'}`
+            land_node.style.backgroundColor = generateLandColor(unit)
+        })
+    
+        world_map.appendChild(land_node)
     }
 }
