@@ -16,7 +16,6 @@ header {
     height: 50px;
 }
 .main-body-div {
-    width: 80%;
     align-self: center;
     display: flex;
     flex-direction: row-reverse;
@@ -26,10 +25,23 @@ header {
     height: 300px;
     width: 200px;
     border: solid 2px salmon;
+    background-color: gold;
 }
 .world-unit {
     border: .5px solid black;
 }
 .world-unit:hover {
     background: aqua !important;
+}
+#dragon {
+    background-image: url("./assets/dragon-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+}
+#home {
+    background-image: url("./assets/small-castle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px;
 }

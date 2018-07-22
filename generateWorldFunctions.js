@@ -24,16 +24,16 @@ function terrainSelection() {
 // generateLandColor checks the argument objects key: values to return a string value for a background color
 // conditionals check for starting point (home), discovered status, and land type
 function generateLandColor(arg) {
-    if (arg.land_type === 'forest' && !arg.home && arg.discovered) {
+    if (arg.land_type === 'forest' && arg.discovered) {
         return '#005000'
     }
-    else if (arg.land_type === 'plains' && !arg.home && arg.discovered) {
+    else if (arg.land_type === 'plains' && arg.discovered) {
         return '#779e27'
     }
-    else if (arg.land_type === 'mountains' && !arg.home && arg.discovered) {
+    else if (arg.land_type === 'mountains' && arg.discovered) {
         return '#8694a1'
     }
-    else if (arg.land_type === 'desert' && !arg.home && arg.discovered) {
+    else if (arg.land_type === 'desert' && arg.discovered) {
         return '#ffe0ae'
     }
     else if (arg.discovered !== true && arg.home !== true) {
@@ -44,8 +44,8 @@ function generateLandColor(arg) {
     }
 }
 
-function determineStartLocation(arg) {
-    if (arg === starting_point) {
+function determineStartLocation(arg, arg2) {
+    if (arg === arg2) {
         return true
     }
     else {
@@ -60,12 +60,22 @@ function displayWorld(arg) {
         let land_node = document.createElement('div')
     
         land_node.style.boxSizing = 'border-box'
-        land_node.style.height = '18px'
-        land_node.style.width = '18px'
+        land_node.style.height = '26px'
+        land_node.style.width = '26px'
         land_node.style.backgroundColor = generateLandColor(unit)
         land_node.classList.add('world-unit')
+        if (unit.dragon) {
+            console.log('unit.dragon was true! ' + 'x = ' + unit.x + ' y = ' + unit.y)
+            land_node.id = 'dragon'
+            land_node.style.backGroundImage = 'url("./assets/dragon-icon.png"'
+        }
+        if (unit.home) {
+            land_node.id = 'home'
+            land_node.style.backGroundImage = 'url("./assets/dragon-icon.png"'
+        }
     
         land_node.addEventListener("click", (e)=>{
+            unit.claimed = true
             display_info.innerHTML = 
                 `<br> x = ${unit.x},
                 <br> y = ${unit.y},
