@@ -38,10 +38,12 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
+    border-color: red;
 }
 #home {
     background-image: url("./assets/small-castle.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 26px;
+    border: .5px solid gold;
 }
