@@ -55,13 +55,14 @@ function determineStartLocation(arg, arg2) {
 
 function displayWorld(arg) {
     determinExploredLands(arg)
+    resourceGrowth(arg)
     for (let i = 0; i < arg.length; i++) {
         let unit = arg[i]
         let land_node = document.createElement('div')
     
         land_node.style.boxSizing = 'border-box'
-        land_node.style.height = '26px'
-        land_node.style.width = '26px'
+        land_node.style.height = `${unit_size}px`
+        land_node.style.width = `${unit_size}px`
         land_node.style.backgroundColor = generateLandColor(unit)
         land_node.classList.add('world-unit')
         if (unit.dragon) {

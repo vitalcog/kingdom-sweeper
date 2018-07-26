@@ -14,8 +14,10 @@
     <div class="flex-layout-wrapper">
         <header></header>
         <div class="main-body-div">
-            <div id="display">
-                <button>click me!</button>
+            <div class="vertical-flex-container">
+                <div id="display">
+                    <button>click me!</button>
+                </div>
             </div>
         </div>
         <footer></footer>

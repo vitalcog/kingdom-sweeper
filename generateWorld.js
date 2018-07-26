@@ -6,6 +6,7 @@ const button = document.querySelector('button')
 
 const world_units = []
 const size_of_world = 24
+const unit_size = 26
 const terrain = {
     forest: 0,
     plains: 0,
@@ -56,7 +57,7 @@ world_map.style.boxSizing = 'border-box'
 world_map.style.display = 'flex'
 world_map.style.flexDirection = 'row-reverse'
 world_map.style.flexWrap = 'wrap'
-world_map.style.maxWidth = `${size_of_world * 26}px`
+world_map.style.maxWidth = `${size_of_world * unit_size}px`
 
 main_section.appendChild(world_map)
 
